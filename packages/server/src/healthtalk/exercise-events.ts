@@ -84,7 +84,7 @@ exerciseEventsRouter.post('/', async (req: Request, res: Response) => {
 
   const config = getConfig();
   const projectId = gatewayHeaders.tenantId || config.defaultProjectId || (await resolveDefaultProjectId());
-  getLogger().info('Exercise event project resolution', {
+  getLogger().error('Exercise event project resolution', {
     eventId: event.id,
     athleteId: athlete.id,
     receivedTenantId: gatewayHeaders.tenantId,
